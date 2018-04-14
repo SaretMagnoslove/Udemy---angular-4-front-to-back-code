@@ -3,34 +3,21 @@ import { Component } from '@angular/core';
 @Component({
     // tslint:disable-next-line:component-selector
     selector: 'sandbox',
-    template: `
-    <h1>{{ name }} is {{ age }} years old</h1>
-    <h2>His name is {{ person.firstName }} {{ person.lastName }}</h2>
-    <ul>
-        <li> {{ 'Hello World' }} </li>
-        <li> {{ 1+1 }} </li>
-        <li> {{ showAge() }} </li>
-    </ul>
-    `
+    template: `<h1>Hello {{ name }}</h1>`
 })
 
 export class SanboxComponent {
-    name = 'Sheridan';
-    age = 40;
-    person = {firstName: 'John', lastName: 'Sheridan'};
+    // tslint:disable-next-line:no-inferrable-types
+    name: string = 'Susan Ivanova';
+    // tslint:disable-next-line:no-inferrable-types
+    age: number = 35;
+    hasChildren: Boolean = true;
+    city: any = 'B5';
+    myNumbersArray: number[] = [1, 2, 3];
+    myStringsArray: string[] = ['hello', 'world'];
 
     constructor() {
-        console.log('constructor ran...');
-        // this.age = 35;
-        this.hasBirthday();
-        this.hasBirthday();
+     this.hasChildren = false;
     }
 
-    hasBirthday() {
-        this.age += 1;
-    }
-
-    showAge() {
-        return this.age;
-    }
 }
