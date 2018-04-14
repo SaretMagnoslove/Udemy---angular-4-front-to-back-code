@@ -15,6 +15,11 @@ export class SanboxComponent {
     city: any = 'B5';
     myNumbersArray: number[] = [1, 2, 3];
     myStringsArray: string[] = ['hello', 'world'];
+    myAnyArray: any[] = ['hello', 'world', 2];
+    myTuple: [string, number] = ['hello', 3];
+    unusable: void = undefined;
+    u: undefined = undefined;
+    n: null = null;
 
     constructor() {
      this.hasChildren = false;
