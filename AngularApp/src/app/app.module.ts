@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { SanboxComponent } from './components/sandbox.component';
 
 
 @NgModule({
   declarations: [
     AppComponent
+    SanboxComponent
   ],
   imports: [
     BrowserModule
