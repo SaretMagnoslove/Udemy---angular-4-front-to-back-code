@@ -3,52 +3,33 @@ import { Component } from '@angular/core';
 @Component({
     // tslint:disable-next-line:component-selector
     selector: 'sandbox',
-    template: `
-        <h1>Hello World</h1>
-        {{ people }}
-        <ul>
-            <li *ngFor="let person of people">
-                {{person}}
-            </li>
-        </ul>
-        <ul>
-            <li *ngFor="let person of people; let i = index">
-                {{i+1}} {{person}}
-            </li>
-        </ul>
-        <ul>
-            <li *ngFor="let person of people2">
-                {{person.firstName}} {{person.lastName}}
-            </li>
-        </ul>
-        `,
+    template:
+     `<h1>Hello
+         <!--
+        <span *ngIf="showName">{{ name }}</span>
+        <span *ngIf="!showName">World</span>
+        -->
+        <span *ngIf="showName; else noName">{{ name }}</span>
+        <ng-template #noName>World</ng-template>
+
+        <p>Hello {{ showName ? name : 'world' }}</p>
+
+        <hr>
+
+        <div [ngSwitch]="greeting">
+            <div *ngSwitchCase="'1'">Hello world</div>
+            <div *ngSwitchCase="'2'">Hi there</div>
+            <div *ngSwitchCase="'3'">What's up</div>
+            <div *ngSwitchDefault>Hello</div>
+        </div>
+     </h1>`
 })
 
 export class SandboxComponent {
-    people = ['Londo Mollari', 'Lyta Alexander', 'Marcus Cole', 'Vir Cotto'];
-
-    people2 = [
-        {
-            firstName: 'Rick',
-            lastName: 'Grimes'
-        },
-        {
-            firstName: 'Daryl',
-            lastName: 'Dixon'
-        },
-        {
-            firstName: 'Carl',
-            lastName: 'Grimes'
-        },
-        {
-            firstName: 'Glenn',
-            lastName: 'Rhee'
-        },
-    ];
-
-    constructor() {
-        this.people [2] = 'Lyta Alexander';
-        this.people [1] = 'Marcus Cole';
-    }
-
+  // tslint:disable-next-line:no-inferrable-types
+  name: string = 'John Sheridan';
+  // tslint:disable-next-line:no-inferrable-types
+  showName: boolean = true;
+  // tslint:disable-next-line:no-inferrable-types
+  greeting: number = 88;
 }
