@@ -5,26 +5,35 @@ import { Component } from '@angular/core';
     selector: 'sandbox',
     template: `
         <h1>hello world</h1>
-        <!--
-        <!-- 3 ways to bind properties -->
-        <div><img src = "{{ imageUrl }}"></div>
-        <div><img [src]="imageUrl"></div>
-        <div><img bind-src="imageUrl"></div>
-.,
-        <h4>Image location: <span [textContent]="imageUrl"></span></h4>
-        -->
-        <hr>
-        <h2>Create Post</h2>
-        <p [hidden]="isUnchanged">please save</p>
-        <button [disabled]="isUnchanged">Save</button>
+        <h4 [class.special]="isSpecial">This is a special class binding</h4>
+        <h4 [ngClass]="currentClasses">special and savable</h4>
+    `,
+    styles: [
+        `
+            .special{
+                color: green
+            }
+            .savable{
+                text-transform: uppercase
+            }
+        `
+    ]
 
-    `
 })
 
 export class SandboxComponent {
-    // tslint:disable-next-line:no-inferrable-types
-    imageUrl: string =  'https://loremflickr.com/320/240';
-    // tslint:disable-next-line:no-inferrable-types
-    isUnchanged: boolean = false;
+    isSpecial = true;
+    canSave = true;
+    currentClasses = {};
 
+    constructor() {
+        this.setCurrentClasses();
+    }
+
+    setCurrentClasses() {
+        this.currentClasses = {
+            savable: this.canSave,
+            special: this.isSpecial
+        };
+    }
 }
