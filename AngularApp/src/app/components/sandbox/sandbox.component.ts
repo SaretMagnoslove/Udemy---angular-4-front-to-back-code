@@ -3,33 +3,28 @@ import { Component } from '@angular/core';
 @Component({
     // tslint:disable-next-line:component-selector
     selector: 'sandbox',
-    template:
-     `<h1>Hello
-         <!--
-        <span *ngIf="showName">{{ name }}</span>
-        <span *ngIf="!showName">World</span>
+    template: `
+        <h1>hello world</h1>
+        <!--
+        <!-- 3 ways to bind properties -->
+        <div><img src = "{{ imageUrl }}"></div>
+        <div><img [src]="imageUrl"></div>
+        <div><img bind-src="imageUrl"></div>
+.,
+        <h4>Image location: <span [textContent]="imageUrl"></span></h4>
         -->
-        <span *ngIf="showName; else noName">{{ name }}</span>
-        <ng-template #noName>World</ng-template>
-
-        <p>Hello {{ showName ? name : 'world' }}</p>
-
         <hr>
+        <h2>Create Post</h2>
+        <p [hidden]="isUnchanged">please save</p>
+        <button [disabled]="isUnchanged">Save</button>
 
-        <div [ngSwitch]="greeting">
-            <div *ngSwitchCase="'1'">Hello world</div>
-            <div *ngSwitchCase="'2'">Hi there</div>
-            <div *ngSwitchCase="'3'">What's up</div>
-            <div *ngSwitchDefault>Hello</div>
-        </div>
-     </h1>`
+    `
 })
 
 export class SandboxComponent {
-  // tslint:disable-next-line:no-inferrable-types
-  name: string = 'John Sheridan';
-  // tslint:disable-next-line:no-inferrable-types
-  showName: boolean = true;
-  // tslint:disable-next-line:no-inferrable-types
-  greeting: number = 88;
+    // tslint:disable-next-line:no-inferrable-types
+    imageUrl: string =  'https://loremflickr.com/320/240';
+    // tslint:disable-next-line:no-inferrable-types
+    isUnchanged: boolean = false;
+
 }
