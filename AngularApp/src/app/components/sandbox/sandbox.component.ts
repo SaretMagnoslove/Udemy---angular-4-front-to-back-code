@@ -5,46 +5,29 @@ import { Component } from '@angular/core';
     selector: 'sandbox',
     template: `
         <h1>hello world</h1>
-        <div>
-            <input type="text" (keyup)="fireEvent($event)" placeholder="keyup event">
+        <div class="container">
+            <form>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" [(ngModel)]="name" name="name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>age</label>
+                    <input type="number" [(ngModel)]="age" name="age" class="form-control">
+                </div>
+                <input type="submit" value="submit" class="btn btn-success">
+            </form>
+            <h4>{{ name }}</h4>
+            <h4>{{ age }}</h4>
         </div>
-        <div>
-        <input type="text" (keydown)="fireEvent($event)" placeholder="key down event">
-        </div>
-        <div>
-        <input type="text" (focus)="fireEvent($event)" placeholder="focus event">
-        </div>
-        <div>
-        <input type="text" (blur)="fireEvent($event)" placeholder="blur event">
-        </div>
-        <div>
-        <input type="text" (cut)="fireEvent($event)" placeholder="cut event">
-        </div>
-        <div>
-        <input type="text" (copy)="fireEvent($event)" placeholder="copy event">
-        </div>
-        <div>
-        <input type="text" (paste)="fireEvent($event)" placeholder="paste event">
-        </div>
-        <hr>
 
-        <div>
-            <input type="text" (keyup)="changeText($event)" placeholder="change text" value={{text}}>
-        </div>
-        <h2>{{ text }}</h2>
     `
 })
 
 export class SandboxComponent {
     // tslint:disable-next-line:no-inferrable-types
-    text: string = 'hello';
-
-    fireEvent(e) {
-        console.log(e.type);
-    }
-
-    changeText(e) {
-        this.text = e.target.value;
-    }
+    name: string = '';
+    // tslint:disable-next-line:no-inferrable-types
+    age: number = 0;
 }
 
