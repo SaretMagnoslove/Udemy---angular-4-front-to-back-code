@@ -1,3 +1,7 @@
+From Udemi: angular 4 front to back
+
+browse commit history to view different lessons
+
 # AngularApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
