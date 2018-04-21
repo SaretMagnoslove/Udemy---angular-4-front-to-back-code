@@ -5,19 +5,27 @@ import { Component } from '@angular/core';
     selector: 'sandbox',
     template: `
         <h1>hello world</h1>
-        <p>his birthday is {{ birthDay | date }}</p>
-        <p>another format {{ birthDay | date:"MM-dd-yy" }}</p>
-        <p>only year: {{ birthDay | date:"yyyy" }}</p>
-        <p>I love {{ 'cake' | uppercase }}</p>
-        <p>I LOVE {{ 'CATS' | lowercase }}</p>
-        <p>2 piples {{ birthDay | date | uppercase}}</p>
-        <p>your total is {{ total | currency:"GBP":"1"}}
-        <p>his fee is {{ fee | percent }}</p>
+        <button id="click" (click)="fireEvent($event)">Click Event</button>
+        <br>
+        <button id="mouseover" (mouseover)="fireEvent($event)">Mouseover</button>
+        <br>
+        <button id="mousedown" (mousedown)="fireEvent($event)">Mousedown</button>
+        <br>
+        <button id="mouseup" (mouseup)="fireEvent($event)">Mouseup</button>
+        <br>
+        <button id="doubleClick" (dblclick)="fireEvent($event)">Double Click</button>
+        <br>
+        <button id="drag" (drag)="fireEvent($event)">Drag</button>
+        <br>
+        <button id="dragOver" (dragover)="fireEvent($event)">Drag Over</button>
     `
 })
 
 export class SandboxComponent {
-    birthDay = new Date(1981, 1, 15);
-    total = 500;
-    fee = .05;
+    fireEvent(e) {
+        console.log('Button Clicked');
+        console.log(e.type);
+        // alert('id: ' + e.target.id);
+
+    }
 }
