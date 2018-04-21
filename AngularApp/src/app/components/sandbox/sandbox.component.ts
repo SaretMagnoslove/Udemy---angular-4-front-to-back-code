@@ -5,25 +5,19 @@ import { Component } from '@angular/core';
     selector: 'sandbox',
     template: `
         <h1>hello world</h1>
-        <div [style.font-size]="isSpecial ? 'x-large' : 'smaller'">font size is dependable on isSpecial</div>
-
-        <div [ngStyle]="currentStyles">special and savable</div>
+        <p>his birthday is {{ birthDay | date }}</p>
+        <p>another format {{ birthDay | date:"MM-dd-yy" }}</p>
+        <p>only year: {{ birthDay | date:"yyyy" }}</p>
+        <p>I love {{ 'cake' | uppercase }}</p>
+        <p>I LOVE {{ 'CATS' | lowercase }}</p>
+        <p>2 piples {{ birthDay | date | uppercase}}</p>
+        <p>your total is {{ total | currency:"GBP":"1"}}
+        <p>his fee is {{ fee | percent }}</p>
     `
 })
 
 export class SandboxComponent {
-    isSpecial = true;
-    canSave = true;
-    currentStyles = {};
-
-    constructor() {
-        this.setCurrentStyles();
-    }
-
-    setCurrentStyles() {
-        this.currentStyles = {
-            'font-style': this.canSave ? 'italic' : 'normal',
-            'font-size': this.isSpecial ? '24px' : '12px'
-        };
-    }
+    birthDay = new Date(1981, 1, 15);
+    total = 500;
+    fee = .05;
 }
