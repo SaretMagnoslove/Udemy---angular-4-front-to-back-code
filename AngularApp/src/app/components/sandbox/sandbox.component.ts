@@ -7,19 +7,25 @@ import { Component } from '@angular/core';
     selector: 'sandbox',
     template: `
         <h1>hello world</h1>
-        <ul class="list-group">
-            <li class="list-group-item" *ngFor="let d of data">{{ d }}</li>
-        </ul>
+        <div *ngFor="let user of users">
+            <div class="well">
+                <ul class="list-group">
+                    <li class="list-group-item">Name: {{ user.name }} </li>
+                    <li class="list-group-item">Email: {{ user.email }} </li>
+                    <li class="list-group-item">Phone: {{ user.phone }} </li>
+                </ul>
+                <br>
+            </div>
+        </div>
      `
 })
 
 export class SandboxComponent {
-    data: any[] = [];
-
+    users: any[];
     constructor(public dataservice: DataService) {
-        this.dataservice.getData().subscribe(data => {
-            // console.log(data);
-            this.data.push(data);
+        this.dataservice.getUsers().subscribe(users => {
+            // console.log(users);
+            this.users = users;
         });
     }
 }
