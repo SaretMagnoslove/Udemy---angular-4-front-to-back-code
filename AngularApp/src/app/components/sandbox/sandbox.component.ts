@@ -31,6 +31,8 @@ import { Component } from '@angular/core';
                     <li class="list-group-item">Phone: {{ user.phone }} </li>
                 </ul>
                 <br>
+                <button class="btn btn-danger btn-sm" (click)="onDeleteClick(user.id)">Delete</button>
+                <br><br>
             </div>
         </div>
      `
@@ -55,6 +57,16 @@ export class SandboxComponent {
         this.dataservice.addUser(this.user).subscribe(user => {
             console.log(user);
             this.users.unshift(user);
+        });
+    }
+
+    onDeleteClick(id) {
+        this.dataservice.deleteUser(id).subscribe(res => {
+            for (let i = 0; i < this.users.length; i++) {
+                if (this.users[i].id === id) {
+                    this.users.splice(id, 1);
+                }
+            }
         });
     }
 }
