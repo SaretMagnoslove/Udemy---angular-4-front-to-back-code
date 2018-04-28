@@ -1,3 +1,4 @@
+import { DataService } from './../../services/data.service';
 import { Question } from './../../models/Question';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -10,9 +11,13 @@ export class QuestionComponent implements OnInit {
   // tslint:disable-next-line:no-input-rename
   @Input('question') question: Question;
 
-  constructor() { }
+  constructor(public dataService: DataService) { }
 
   ngOnInit() {
+  }
+
+  removeQuestion(question) {
+    this.dataService.removeQuestion(question);
   }
 
 }
