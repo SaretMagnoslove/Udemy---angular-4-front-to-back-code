@@ -24,19 +24,19 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { ClientService } from './services/client.service';
 
 const appRoutes: Routes = [
-  {path:'', component:DashboardComponent},
-  {path:'register', component:RegisterComponent},
-  {path:'login', component:LoginComponent},
-  {path:'add-client', component:AddClientComponent},
-  {path:'client/:id', component:ClientDetailsComponent}
+  {path: '', component: DashboardComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'add-client', component: AddClientComponent},
+  {path: 'client/:id', component: ClientDetailsComponent}
 ];
 
 export const firebaseConfig = {
-    apiKey: "AIzaSyATyVKro-cR26OLKR_O78HY8u_P82-mQ3o",
-    authDomain: "clientpanel-e9ae7.firebaseapp.com",
-    databaseURL: "https://clientpanel-e9ae7.firebaseio.com",
-    storageBucket: "clientpanel-e9ae7.appspot.com",
-    messagingSenderId: "479596555240"
+    apiKey: 'AIzaSyBY-VZRujRZKIZvP6qxRmRR0xhYUBXIfSs',
+    authDomain: 'clientpanel-e25d6.firebaseapp.com',
+    databaseURL: 'https://clientpanel-e25d6.firebaseio.com',
+    storageBucket: 'clientpanel-e25d6.appspot.com',
+    messagingSenderId: '470445357174'
 }
 
 @NgModule({
