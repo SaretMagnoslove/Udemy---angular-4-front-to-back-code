@@ -20,4 +20,5 @@ export class ClientsComponent implements OnInit {
       console.log(this.clients);
     });
   }
+
 }

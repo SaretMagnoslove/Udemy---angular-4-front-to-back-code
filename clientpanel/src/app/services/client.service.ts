@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
-// tslint:disable-next-line:import-blacklist
 import { Observable } from 'rxjs';
 import { Client } from '../models/Client';
 
@@ -10,12 +9,12 @@ export class ClientService {
   client: FirebaseObjectObservable<any>;
 
   constructor(
-    public af: AngularFireDatabase
-  ) {
+    public af:AngularFireDatabase
+  ) { 
     this.clients = this.af.list('/clients') as FirebaseListObservable<Client[]>;
   }
 
-  getClients() {
+  getClients(){
     return this.clients;
   }
 
